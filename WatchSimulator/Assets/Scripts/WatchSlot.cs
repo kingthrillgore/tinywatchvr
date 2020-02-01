@@ -11,7 +11,7 @@ public class WatchSlot : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-        gameStateController = GameObject.FindObjectOfType<GameStateController>();
+    gameStateController = GameObject.FindObjectOfType<GameStateController>();
   }
 
   private void onCollision(Collider collider)

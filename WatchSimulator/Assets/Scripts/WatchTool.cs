@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WatchTool : MonoBehaviour
 {
-  public WatchPart part;
+  public bool works = false;
   // Start is called before the first frame update
   void Start()
   {
@@ -20,9 +20,10 @@ public class WatchTool : MonoBehaviour
 
   private void onCollision(Collider collider)
   {
-    if (collider.TryGetComponent<WatchPart>(out WatchPart part) && part.Equals(part) && !part.snapped)
+    //
+    if (collider.TryGetComponent<WatchPart>(out WatchPart part) && this.works)
     {
-      part.transform.parent = transform;
+      part.transform.SetParent(transform);
     }
   }
 
