@@ -8225,6 +8225,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2219870841373728824, guid: 842598ef46751af469d5d543542a83e3,
+        type: 3}
+      propertyPath: breakForce
+      value: Infinity
+      objectReference: {fileID: 0}
     - target: {fileID: 2219870841373728826, guid: 842598ef46751af469d5d543542a83e3,
         type: 3}
       propertyPath: m_Name
@@ -8305,11 +8310,6 @@ PrefabInstance:
       propertyPath: cameraParent
       value: 
       objectReference: {fileID: 153889463}
-    - target: {fileID: 5464805793465034590, guid: 55e1a0086461c3a4ea111f57a5539808,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5464805793595473674, guid: 55e1a0086461c3a4ea111f57a5539808,
         type: 3}
       propertyPath: m_Name
