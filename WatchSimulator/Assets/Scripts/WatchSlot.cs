@@ -6,11 +6,12 @@ using VRTK;
 public class WatchSlot : MonoBehaviour
 {
   public GameObject snapSpot;
-  public GameStateController gameStateController;
+  GameStateController gameStateController;
   public TimedEvent timedEvent;
   // Start is called before the first frame update
   void Start()
   {
+        gameStateController = GameObject.FindObjectOfType<GameStateController>();
   }
 
   private void onCollision(Collider collider)
