@@ -1,0 +1,27 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GameStateController : MonoBehaviour
+{
+  public List<WatchPart> parts = new List<WatchPart>();
+  // Start is called before the first frame update
+  void Start()
+  {
+  }
+
+  // Update is called once per frame
+  void Update()
+  {
+  }
+
+  public void scorePart(WatchPart part)
+  {
+    parts.Add(part);
+    if (parts.Count >= 4)
+    {
+      // TODO: send timer callback to play audio and show a success screen?
+      Debug.Log("You have won this video game.");
+    }
+  }
+}
