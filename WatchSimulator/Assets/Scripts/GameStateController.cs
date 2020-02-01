@@ -5,15 +5,6 @@ using UnityEngine;
 public class GameStateController : MonoBehaviour
 {
   public List<WatchPart> parts = new List<WatchPart>();
-  // Start is called before the first frame update
-  void Start()
-  {
-  }
-
-  // Update is called once per frame
-  void Update()
-  {
-  }
 
   public void scorePart(WatchPart part)
   {
