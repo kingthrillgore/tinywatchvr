@@ -109,6 +109,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerTag: Part
+--- !u!65 &860682176054554333
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3028918738217900032}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 43.98944, y: 19.98114, z: 72.124}
+  m_Center: {x: -4.555414, y: -2.0894985, z: 34.07931}
 --- !u!1001 &8923770258231190072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -479,6 +492,12 @@ PrefabInstance:
 --- !u!1 &8394579531045163162 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1128169704621000930, guid: ffac7a9e3c87f4b4fa346d251d85ad1d,
+    type: 3}
+  m_PrefabInstance: {fileID: 8923770258330523768}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3028918738217900032 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5899566315260870776, guid: ffac7a9e3c87f4b4fa346d251d85ad1d,
     type: 3}
   m_PrefabInstance: {fileID: 8923770258330523768}
   m_PrefabAsset: {fileID: 0}

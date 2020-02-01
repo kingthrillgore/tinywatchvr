@@ -21,6 +21,30 @@ ModelImporter:
   - first:
       74: -1139146200756040600
     second: hand bones|deleteme
+  - first:
+      74: -1602696007149843715
+    second: hand bones.left|deleteme
+  - first:
+      74: -6206405899101278505
+    second: hand bones.left|deleteme.001
+  - first:
+      74: 7998197360412089436
+    second: hand bones.left|Fist
+  - first:
+      74: 2658521189579035782
+    second: hand bones.left|Hold Dainty
+  - first:
+      74: -5613998744998265657
+    second: hand bones.left|Open
+  - first:
+      74: 3939165966304020773
+    second: hand bones.left|Open.001
+  - first:
+      74: -724104134986434316
+    second: hand bones.left|PoseLib
+  - first:
+      74: 8349539342085166609
+    second: hand bones.left|PoseLib.001
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -47,7 +71,68 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths:
+    - hand bones/Wrist/Metacarpal 3/Prominal Phalanx 3
+    - hand bones/Wrist/Metacarpal 3/Prominal Phalanx 3/Bone.007
+    - hand bones/Wrist/Metacarpal 3/Prominal Phalanx 3/Bone.007/Distal Phalanx 3
+    - hand bones/Wrist/Metacarpal 3/Prominal Phalanx 3/Bone.007/Distal Phalanx 3/Distal
+      Phalanx 3_end
     - hand bones/Wrist
+    - hand bones/Wrist/Metacarpal 3
+    - hand bones/Wrist/Metacarpal 2
+    - hand bones/Wrist/Metacarpal 2/Prominal Phalanx 2
+    - hand bones/Wrist/Metacarpal 2/Prominal Phalanx 2/Middle Phalanx 2
+    - hand bones/Wrist/Metacarpal 2/Prominal Phalanx 2/Middle Phalanx 2/Distal Phalanx
+      2
+    - hand bones/Wrist/Metacarpal 2/Prominal Phalanx 2/Middle Phalanx 2/Distal Phalanx
+      2/Distal Phalanx 2_end
+    - hand bones/Wrist/Metacarpal 1
+    - hand bones/Wrist/Metacarpal 1/Prominal Phalanx 1
+    - hand bones/Wrist/Metacarpal 1/Prominal Phalanx 1/Distal Phalanx 1
+    - hand bones/Wrist/Metacarpal 1/Prominal Phalanx 1/Distal Phalanx 1/Distal Phalanx
+      1_end
+    - hand bones/Wrist/Metacarpal 4
+    - hand bones/Wrist/Metacarpal 4/Prominal Phalanx 4
+    - hand bones/Wrist/Metacarpal 4/Prominal Phalanx 4/Middle Phalanx 4
+    - hand bones/Wrist/Metacarpal 4/Prominal Phalanx 4/Middle Phalanx 4/Distal Phalanx
+      4
+    - hand bones/Wrist/Metacarpal 4/Prominal Phalanx 4/Middle Phalanx 4/Distal Phalanx
+      4/Distal Phalanx 4_end
+    - hand bones/Wrist/Metacarpal 5
+    - hand bones/Wrist/Metacarpal 5/Prominal Phalanx 5
+    - hand bones/Wrist/Metacarpal 5/Prominal Phalanx 5/Middle Phalanx 5
+    - hand bones/Wrist/Metacarpal 5/Prominal Phalanx 5/Middle Phalanx 5/Distal Phalanx
+      5
+    - hand bones/Wrist/Metacarpal 5/Prominal Phalanx 5/Middle Phalanx 5/Distal Phalanx
+      5/Distal Phalanx 5_end
+    - hand bones/Wrist/Metacarpal 3/Prominal Phalanx 3/Middle Phalanx 3
+    - hand bones/Wrist/Metacarpal 3/Prominal Phalanx 3/Middle Phalanx 3/Distal Phalanx
+      3
+    - hand bones/Wrist/Metacarpal 3/Prominal Phalanx 3/Middle Phalanx 3/Distal Phalanx
+      3/Distal Phalanx 3_end
+    - hand bones/Wrist/Bone.001
+    - hand bones/Wrist/Bone.001/Bone.006
+    - hand bones/Wrist/Bone.001/Bone.006/Bone.007
+    - hand bones/Wrist/Bone.001/Bone.006/Bone.007/Bone.008
+    - hand bones/Wrist/Bone.001/Bone.006/Bone.007/Bone.008/Bone.008_end
+    - hand bones/Wrist/Bone.002
+    - hand bones/Wrist/Bone.002/Bone.009
+    - hand bones/Wrist/Bone.002/Bone.009/Bone.010
+    - hand bones/Wrist/Bone.002/Bone.009/Bone.010/Bone.011
+    - hand bones/Wrist/Bone.002/Bone.009/Bone.010/Bone.011/Bone.011_end
+    - hand bones/Wrist/Bone.003
+    - hand bones/Wrist/Bone.003/Bone.018
+    - hand bones/Wrist/Bone.003/Bone.018/Bone.019
+    - hand bones/Wrist/Bone.003/Bone.018/Bone.019/Bone.019_end
+    - hand bones/Wrist/Bone.004
+    - hand bones/Wrist/Bone.004/Bone.012
+    - hand bones/Wrist/Bone.004/Bone.012/Bone.013
+    - hand bones/Wrist/Bone.004/Bone.012/Bone.013/Bone.014
+    - hand bones/Wrist/Bone.004/Bone.012/Bone.013/Bone.014/Bone.014_end
+    - hand bones/Wrist/Bone.005
+    - hand bones/Wrist/Bone.005/Bone.015
+    - hand bones/Wrist/Bone.005/Bone.015/Bone.016
+    - hand bones/Wrist/Bone.005/Bone.015/Bone.016/Bone.017
+    - hand bones/Wrist/Bone.005/Bone.015/Bone.016/Bone.017/Bone.017_end
     extraUserProperties: []
     clipAnimations: []
     isReadable: 0

@@ -612,6 +612,7 @@ namespace VRTK
     {
       /// XXX: Jesse Magic
       /// Ignore grip inputs from primary grabbing controller
+      /*
       if (grabbedObject != null && grabbedObject.GetComponent<VRTK_InteractableObject>())
       {
         VRTK_InteractableObject objectGrabbedScript = grabbedObject.GetComponent<VRTK_InteractableObject>();
@@ -620,7 +621,7 @@ namespace VRTK
           return;
         }
       }
-
+      */
       OnGrabButtonPressed(controllerEvents.SetControllerEvent(ref grabPressed, true));
       AttemptGrabObject();
     }
@@ -629,6 +630,7 @@ namespace VRTK
     {
       /// XXX: Jesse Magic
       /// Ignore grip inputs from primary grabbing controller
+      /*
       if (grabbedObject != null && grabbedObject.GetComponent<VRTK_InteractableObject>())
       {
         VRTK_InteractableObject objectGrabbedScript = grabbedObject.GetComponent<VRTK_InteractableObject>();
@@ -637,6 +639,7 @@ namespace VRTK
           return;
         }
       }
+      */
       AttemptReleaseObject();
       OnGrabButtonReleased(controllerEvents.SetControllerEvent(ref grabPressed, false));
     }
