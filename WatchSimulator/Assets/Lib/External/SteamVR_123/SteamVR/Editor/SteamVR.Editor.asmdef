@@ -1,0 +1,17 @@
+{
+    "name": "SteamVR.Editor",
+    "references": [
+        "GUID:2c6fdd69de239bb42aaadcd089a4282a"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}

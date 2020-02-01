@@ -1,0 +1,15 @@
+{
+    "name": "VRTK",
+    "references": [
+        "GUID:2c6fdd69de239bb42aaadcd089a4282a"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}
