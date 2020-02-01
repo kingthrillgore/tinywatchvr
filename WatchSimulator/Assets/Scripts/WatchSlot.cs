@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VRTK;
 
 public class WatchSlot : MonoBehaviour
 {
+  public GameObject snapSpot;
   // Start is called before the first frame update
   void Start()
   {
@@ -13,8 +15,11 @@ public class WatchSlot : MonoBehaviour
   {
     if (collider.TryGetComponent<WatchPart>(out WatchPart part) && part.valid)
     {
-      // TODO: actually do something? snap the part to the slot.
-      Debug.Log("WE HAVE COLLIDED WITH A GOOD PART HERE BABY!");
+      part.GetComponent<VRTK_InteractableObject>().ForceStopInteracting();
+      part.gameObject.transform.position = snapSpot.transform.position;
+      part.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+      // TODO: send a message up to the scoring component to say we have a good match.
+      // scoreObject.scoreSlot(gameObject)
     }
   }
 
