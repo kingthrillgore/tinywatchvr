@@ -5130,6 +5130,17 @@ MonoBehaviour:
     ev:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 1758403499}
+          m_MethodName: alert
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 419473468}
           m_MethodName: scatterAtPoint
           m_Mode: 2
@@ -5139,18 +5150,7 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1758403498}
-          m_MethodName: Play
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
+            m_BoolArgument: 1
           m_CallState: 2
     triggered: 0
   gameTime: 180
@@ -6565,6 +6565,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1758403499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758403497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02940fb0f02f6c449b6c780aa6426bba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 1758403498}
+  text: {fileID: 1983101918}
 --- !u!1 &1765463303
 GameObject:
   m_ObjectHideFlags: 0
@@ -7232,6 +7246,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970173348}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1983101918 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1128169704258955413, guid: ffac7a9e3c87f4b4fa346d251d85ad1d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1128169702880039755}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1985595246
 GameObject:
   m_ObjectHideFlags: 0
@@ -7780,7 +7800,7 @@ PrefabInstance:
     - target: {fileID: 1128169704258955413, guid: ffac7a9e3c87f4b4fa346d251d85ad1d,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1128169704621000929, guid: ffac7a9e3c87f4b4fa346d251d85ad1d,
         type: 3}
