@@ -15,7 +15,7 @@ public class DrawerController : MonoBehaviour
 
     void spawnRandom() {
         spawnedObject = GameObject.Instantiate(spawnableObjects[Random.Range(0, spawnableObjects.Length)], this.transform);
-        spawnedObject.transform.position = new Vector3(transform.position.x, transform.position.y + 0.01f, transform.position.z);
+        spawnedObject.transform.position = new Vector3(transform.position.x, transform.position.y + 0.05f, transform.position.z);
     }
 
     void handleCollision(Collider col) {

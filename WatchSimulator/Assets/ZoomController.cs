@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ZoomController : MonoBehaviour
 {
-
     public Transform cameraParent;
     public float multiplier = 2f;
     bool scaled = false;
