@@ -138,3 +138,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snapSpot: {fileID: 7516294503854016073}
+  timedEvent:
+    time: 0
+    ev:
+      m_PersistentCalls:
+        m_Calls: []
+    triggered: 0

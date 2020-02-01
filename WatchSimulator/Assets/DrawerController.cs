@@ -20,6 +20,9 @@ public class DrawerController : MonoBehaviour
 
     void handleCollision(Collider col) {
         //Debug.Log("Colliding with " + col.name);
+        if (col.tag != "Hand") {
+            return;
+        }
 
         if (open) {
             drawerClose();
@@ -40,7 +43,7 @@ public class DrawerController : MonoBehaviour
         if (moveDrawer(-transform.forward)) {
             open = false;
 
-            Destroy(spawnedObject);
+            //Destroy(spawnedObject);
         }
     }
 
