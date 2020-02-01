@@ -6,6 +6,8 @@ using VRTK;
 public class WatchSlot : MonoBehaviour
 {
   public GameObject snapSpot;
+  public GameStateController gameStateController;
+  public TimedEvent timedEvent;
   // Start is called before the first frame update
   void Start()
   {
@@ -18,8 +20,10 @@ public class WatchSlot : MonoBehaviour
       part.GetComponent<VRTK_InteractableObject>().ForceStopInteracting();
       part.gameObject.transform.position = snapSpot.transform.position;
       part.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
-      // TODO: send a message up to the scoring component to say we have a good match.
-      // scoreObject.scoreSlot(gameObject)
+      gameStateController.scorePart(part);
+      part.snapped = true;
+      part.transform.parent = transform;
+      // TODO: play a sound effect, show the score?
     }
   }
 
