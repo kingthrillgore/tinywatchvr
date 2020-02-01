@@ -19,7 +19,7 @@ public class DrawerController : MonoBehaviour
     }
 
     void handleCollision(Collider col) {
-        Debug.Log("Colliding with " + col.name);
+        //Debug.Log("Colliding with " + col.name);
 
         if (open) {
             drawerClose();
