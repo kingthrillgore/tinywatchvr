@@ -9,7 +9,7 @@ public class WatchPart : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-
+    valid = (Random.value > 0.9f);
   }
 
   void Update()
