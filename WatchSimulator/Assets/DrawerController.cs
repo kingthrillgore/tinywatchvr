@@ -20,7 +20,7 @@ public class DrawerController : MonoBehaviour
 
     void handleCollision(Collider col) {
         //Debug.Log("Colliding with " + col.name);
-        if (col.tag != "Hand") {
+        if (col.tag != "Hand" && col.transform.parent.tag != "Hand") {
             return;
         }
 

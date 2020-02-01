@@ -17,7 +17,7 @@ public class AlertToggle : MonoBehaviour
     }
 
     IEnumerator delayedAlert() {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
         alert();
     }
