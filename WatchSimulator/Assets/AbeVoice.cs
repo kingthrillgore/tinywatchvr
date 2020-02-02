@@ -6,6 +6,9 @@ public class AbeVoice : MonoBehaviour
 {
   public List<AudioSource> wrongPartSounds;
   public List<AudioSource> wrongToolSounds;
+  bool partCooldown = false;
+  bool toolCooldown = false;
+  float delay = 4f;
   // Start is called before the first frame update
 
   void Start()
@@ -18,15 +21,31 @@ public class AbeVoice : MonoBehaviour
   {
   }
 
+  IEnumerator delayPart()
+  {
+    yield return new WaitForSeconds(delay);
+    partCooldown = false;
+  }
+
+  IEnumerator delayTool()
+  {
+    yield return new WaitForSeconds(delay);
+    toolCooldown = false;
+  }
+
   public void wrongTool()
   {
-    var audio = wrongToolSounds[Random.Range(0, wrongToolSounds.Count)];
-    audio.Play();
+    if (!toolCooldown)
+      wrongToolSounds[Random.Range(0, wrongToolSounds.Count)].Play();
+    toolCooldown = true;
+    StartCoroutine(delayTool());
   }
 
   public void wrongPart()
   {
-    var audio = wrongPartSounds[Random.Range(0, wrongPartSounds.Count)];
-    audio.Play();
+    if (!partCooldown)
+      wrongPartSounds[Random.Range(0, wrongPartSounds.Count)].Play();
+    partCooldown = true;
+    StartCoroutine(delayPart());
   }
 }
