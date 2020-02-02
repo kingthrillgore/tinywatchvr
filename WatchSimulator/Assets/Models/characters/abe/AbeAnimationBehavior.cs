@@ -5,8 +5,11 @@ using UnityEngine;
 public class AbeAnimationBehavior : MonoBehaviour
 {
     public Animator animator;
-    public float idleActionsPerMinuteMinimum = 1f;
-    public float idleActionsPerMinuteMaximum = 6f;
+    public float idleActionsPerMinuteMinimum = 4f;
+    public float idleActionsPerMinuteMaximum = 9f;
+
+    const float recenterThreshold = 0.95f;
+    const float repositionThreshhold = 0.2f;
 
     private float nextIdleActionTime = 0f;
 
@@ -18,24 +21,29 @@ public class AbeAnimationBehavior : MonoBehaviour
 
     public void Update()
     {
-        if (
-            Time.time > nextIdleActionTime
-            && animator.GetCurrentAnimatorStateInfo(0).IsName("old man idle")
-        )
-        {
-            PickNextIdleActionTime();
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("old man idle")) {
+            if (Time.time > nextIdleActionTime)
+            {
+                PickNextIdleActionTime();
 
-            int rand = Random.Range(0, 3);
-            if (rand == 0) {
-                Debug.Log("Idle");
-                IdleAction();
-            } else if (rand == 1) {
-                Debug.Log("Work");
-                Work();
-            } else {
-                Debug.Log("Happy");
-                ReactHappy();
+                int rand = Random.Range(0, 3);
+                if (rand == 0) {
+                    Debug.Log("Idle");
+                    IdleAction();
+                } else if (rand == 1) {
+                    Debug.Log("Work");
+                    Work();
+                } else {
+                    Debug.Log("Happy");
+                    ReactHappy();
+                }
             }
+            var dot = Vector3.Dot(animator.transform.forward, transform.forward);
+            Debug.Log("Dot: " + dot.ToString());
+            if (dot < recenterThreshold)
+                animator.transform.rotation = Quaternion.Lerp(animator.transform.rotation, transform.rotation, 0.1f);
+            if (Vector3.SqrMagnitude(animator.transform.position - transform.position) > Mathf.Pow(repositionThreshhold, 2f))
+                animator.transform.position = Vector3.Lerp(animator.transform.position, transform.position, 0.1f);
         }
     }
 
