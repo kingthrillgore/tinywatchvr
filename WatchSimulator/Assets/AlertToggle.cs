@@ -4,37 +4,76 @@ using UnityEngine;
 
 public class AlertToggle : MonoBehaviour
 {
-    public AudioSource source;
-    public GameObject text;
-    float toggleTime = 3f;
-    public bool scatterOnAwake = false;
-    public RigidbodyScatterer scatter;
+  public AudioSource source;
+  public GameObject text;
+  float alertDelay = 10f;
+  public bool scatterOnAwake = false;
+  public RigidbodyScatterer scatter;
+  public GameObject blankScreen;
 
-    private void OnEnable() {
-        if (scatterOnAwake) {
-            StartCoroutine(delayedAlert());
-        }
+  private void OnEnable()
+  {
+    if (scatterOnAwake)
+    {
+      StartCoroutine(delayedAlert());
     }
+  }
 
-    IEnumerator delayedAlert() {
-        yield return new WaitForSeconds(2f);
+  IEnumerator delayedAlert()
+  {
+    yield return new WaitForSeconds(2f);
 
-        alert();
+    alert();
+  }
+
+  public void alert()
+  {
+    StartCoroutine(alertCoroutine());
+  }
+
+  IEnumerator snooze()
+  {
+    yield return new WaitForSeconds(90f * Random.value);
+    StartCoroutine(alertCoroutine());
+  }
+
+
+  IEnumerator alertCoroutine()
+  {
+    while (true)
+    {
+      source.Stop();
+      blankScreen.SetActive(false);
+      text.SetActive(true);
+      source.Play();
+      if (scatter != null)
+      {
+        scatter.scatterAtPoint(this.transform);
+      }
+
+      yield return new WaitForSeconds(alertDelay);
     }
+  }
 
-    public void alert() {
-        StartCoroutine(alertCoroutine());
+  void onCollision(Collider collider)
+  {
+    if (collider.tag == "Hand" || collider.transform.parent.tag == "Hand")
+    {
+      StopAllCoroutines();
+      source.Stop();
+      blankScreen.SetActive(true);
+      text.SetActive(false);
+      StartCoroutine(snooze());
     }
+  }
 
-    IEnumerator alertCoroutine() {
-        source.Play();
-        text.SetActive(true);
-        if (scatter != null) {
-            scatter.scatterAtPoint(this.transform);
-        }
+  private void OnCollisionEnter(Collision collision)
+  {
+    onCollision(collision.collider);
+  }
 
-        yield return new WaitForSeconds(toggleTime);
-
-        text.SetActive(false);
-    }
+  private void OnTriggerEnter(Collider other)
+  {
+    onCollision(other);
+  }
 }
