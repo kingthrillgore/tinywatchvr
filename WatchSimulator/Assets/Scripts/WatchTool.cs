@@ -50,7 +50,7 @@ public class WatchTool : MonoBehaviour
 
   private void onCollision(Collider collider)
   {
-    if (collider.TryGetComponent<WatchPart>(out WatchPart part) && transform.GetComponent<VRTK.VRTK_InteractableObject>().IsGrabbed() && works && !part.snapped && part.canSnap)
+    if (collider.TryGetComponent<WatchPart>(out WatchPart part) && transform.GetComponent<VRTK.VRTK_InteractableObject>().IsGrabbed() && works && !part.snapped && part.canSnap && !GetComponentInChildren<WatchPart>())
     {
       part.GetComponent<Rigidbody>().useGravity = false;
       part.GetComponent<Rigidbody>().isKinematic = true;
