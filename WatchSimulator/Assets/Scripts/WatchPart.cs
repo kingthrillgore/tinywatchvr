@@ -6,14 +6,36 @@ public class WatchPart : MonoBehaviour
 {
   public bool valid;
   public bool snapped = false;
+  public bool canSnap = true;
+
   // Start is called before the first frame update
   void Start()
   {
-    valid = (Random.value > 0.9f);
+    // XXX
+    //valid = (Random.value > 0.9f);
+    valid = true;
   }
 
-  void Update()
-  {
+    IEnumerator delay() {
+        canSnap = false;
 
-  }
+        yield return new WaitForSeconds(2f);
+
+        canSnap = true;
+    }
+
+
+    public void snap() {
+        if (!canSnap) {
+            return;
+        }
+
+        StartCoroutine(delay());
+        snapped = true;
+    }
+
+    public void unsnap() {
+        StartCoroutine(delay());
+        snapped = false;
+    }
 }

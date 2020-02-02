@@ -9,23 +9,17 @@ public class WatchTool : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-    works = (Random.value > 0.5f);
-  }
-
-  // Update is called once per frame
-  void Update()
-  {
-
+    // XXX
+    //works = (Random.value > 0.5f);
+    works = true;
   }
 
 
   private void onCollision(Collider collider)
   {
-    //
     if (collider.TryGetComponent<WatchPart>(out WatchPart part))
-
     {
-      if (works || part.Equals(previouslyWorkingPart))
+      if (transform.GetComponent<VRTK.VRTK_InteractableObject> ().IsGrabbed() && (works || part.Equals(previouslyWorkingPart)) && !part.snapped && part.canSnap)
       {
         previouslyWorkingPart = part;
         part.GetComponent<Rigidbody>().useGravity = false;
@@ -33,9 +27,9 @@ public class WatchTool : MonoBehaviour
         part.transform.parent = transform;
         works = false;
       }
-      else
+      else if (!works)
       {
-        Debug.Log("TODO: sound effect or text to say the tool is wrong.");
+        FindObjectOfType<AbeVoice>().wrongTool();
       }
     }
   }

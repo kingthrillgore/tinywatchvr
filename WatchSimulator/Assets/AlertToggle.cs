@@ -4,37 +4,85 @@ using UnityEngine;
 
 public class AlertToggle : MonoBehaviour
 {
-    public AudioSource source;
-    public GameObject text;
-    float toggleTime = 3f;
-    public bool scatterOnAwake = false;
-    public RigidbodyScatterer scatter;
+  public AudioSource source;
+  public GameObject text;
+  float alertDelay = 10f;
+  public bool scatterOnAwake = false;
+  public RigidbodyScatterer scatter;
+  public GameObject blankScreen;
+  public Transform explosionPos;
 
-    private void OnEnable() {
-        if (scatterOnAwake) {
-            StartCoroutine(delayedAlert());
-        }
+  private void OnEnable()
+  {
+    if (scatterOnAwake)
+    {
+      StartCoroutine(delayedAlert());
     }
+  }
 
-    IEnumerator delayedAlert() {
-        yield return new WaitForSeconds(2f);
+  IEnumerator delayedAlert()
+  {
+    yield return new WaitForSeconds(2f);
 
-        alert();
-    }
+    alert();
+  }
 
-    public void alert() {
-        StartCoroutine(alertCoroutine());
-    }
+  public void alert()
+  {
+    StartCoroutine(alertCoroutine());
+  }
 
-    IEnumerator alertCoroutine() {
-        source.Play();
-        text.SetActive(true);
-        if (scatter != null) {
+  IEnumerator snooze()
+  {
+    yield return new WaitForSeconds(90f * Random.value);
+    StartCoroutine(alertCoroutine());
+  }
+
+
+  IEnumerator alertCoroutine()
+  {
+    while (true)
+    {
+      source.Stop();
+      blankScreen.SetActive(false);
+      text.SetActive(true);
+      source.Play();
+      if (scatter != null)
+      {
+        if (explosionPos != null) {
+            scatter.scatterAtPoint(explosionPos);
+        } else {
             scatter.scatterAtPoint(this.transform);
         }
+      }
 
-        yield return new WaitForSeconds(toggleTime);
-
-        text.SetActive(false);
+        if (!scatterOnAwake) {
+            yield return new WaitForSeconds(alertDelay);
+        } else {
+            yield break;
+        }
     }
+  }
+
+  void onCollision(Collider collider)
+  {
+    if (collider.tag == "Hand" || collider.transform.parent.tag == "Hand")
+    {
+      StopAllCoroutines();
+      source.Stop();
+      blankScreen.SetActive(true);
+      text.SetActive(false);
+      StartCoroutine(snooze());
+    }
+  }
+
+  private void OnCollisionEnter(Collision collision)
+  {
+    onCollision(collision.collider);
+  }
+
+  private void OnTriggerEnter(Collider other)
+  {
+    onCollision(other);
+  }
 }

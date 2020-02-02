@@ -8,6 +8,7 @@ public class WatchSlot : MonoBehaviour
   public GameObject snapSpot;
   GameStateController gameStateController;
   public TimedEvent timedEvent;
+
   // Start is called before the first frame update
   void Start()
   {
@@ -20,14 +21,31 @@ public class WatchSlot : MonoBehaviour
     {
       if (!part.valid)
       {
-        Debug.Log("TODO: sound effect or text that the part is wrong.");
+        FindObjectOfType<AbeVoice>().wrongPart();
+
+        Transform tool = part.transform.parent;
+        part.transform.parent = null;
+        //Destroy(tool.gameObject);
+
+        part.unsnap();
+        part.GetComponent<Rigidbody>().useGravity = true;
+        part.GetComponent<Rigidbody>().isKinematic = false;
+        part.GetComponent<Rigidbody> ().AddForce(Random.insideUnitSphere * 50f, ForceMode.Impulse);
       }
       else
       {
+        if (part.snapped || !part.canSnap)
+        {
+          return;
+        }
+
+        Debug.Log("VALID!");
+        part.GetComponent<Rigidbody>().useGravity = false;
+        part.GetComponent<Rigidbody>().isKinematic = true;
         part.gameObject.transform.position = snapSpot.transform.position;
         part.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
         gameStateController.scorePart(part);
-        part.snapped = true;
+        part.snap();
         part.transform.parent = transform;
         // TODO: play a sound effect, show the score?
       }

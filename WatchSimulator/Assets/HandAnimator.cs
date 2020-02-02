@@ -17,7 +17,7 @@ public class HandAnimator : MonoBehaviour
 
     private void OnDisable() {
         grab.ControllerGrabInteractableObject -= handleGrab;
-        grab.ControllerUngrabInteractableObject += handleUngrab;
+        grab.ControllerUngrabInteractableObject -= handleUngrab;
     }
 
     void handleGrab(object sender, ObjectInteractEventArgs e) {
