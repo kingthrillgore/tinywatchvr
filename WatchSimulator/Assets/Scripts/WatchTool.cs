@@ -29,7 +29,7 @@ public class WatchTool : MonoBehaviour
       }
       else if (!works)
       {
-        Debug.Log("TODO: sound effect or text to say the tool is wrong.");
+        FindObjectOfType<AbeVoice>().wrongTool();
       }
     }
   }

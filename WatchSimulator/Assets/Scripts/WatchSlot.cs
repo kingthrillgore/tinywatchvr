@@ -15,24 +15,26 @@ public class WatchSlot : MonoBehaviour
     gameStateController = GameObject.FindObjectOfType<GameStateController>();
   }
 
-    private void onCollision(Collider collider)
+  private void onCollision(Collider collider)
   {
     if (collider.TryGetComponent<WatchPart>(out WatchPart part))
     {
       if (!part.valid)
       {
-        Debug.Log("TODO: sound effect or text that the part is wrong.");
+        FindObjectOfType<AbeVoice>().wrongPart();
 
         Transform tool = part.transform.parent;
         part.transform.parent = null;
         Destroy(tool.gameObject);
 
-        part.GetComponent<Rigidbody> ().AddForce(Random.insideUnitSphere * 10f, ForceMode.Impulse);
+        part.GetComponent<Rigidbody>().AddForce(Random.insideUnitSphere * 10f, ForceMode.Impulse);
 
-    } else
+      }
+      else
       {
-        if (part.snapped || !part.canSnap) {
-            return;
+        if (part.snapped || !part.canSnap)
+        {
+          return;
         }
 
         Debug.Log("VALID!");
