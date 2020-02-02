@@ -432,6 +432,66 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 990561270539681611, guid: e02ed37cb5863dd448d78cd8db092d48,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 990561270539681611, guid: e02ed37cb5863dd448d78cd8db092d48,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720058325400171639, guid: e02ed37cb5863dd448d78cd8db092d48,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720058325400171639, guid: e02ed37cb5863dd448d78cd8db092d48,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2642051687927255083, guid: e02ed37cb5863dd448d78cd8db092d48,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2642051687927255083, guid: e02ed37cb5863dd448d78cd8db092d48,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3410655267229117800, guid: e02ed37cb5863dd448d78cd8db092d48,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3410655267229117800, guid: e02ed37cb5863dd448d78cd8db092d48,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3627299905869237952, guid: e02ed37cb5863dd448d78cd8db092d48,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3627299905869237952, guid: e02ed37cb5863dd448d78cd8db092d48,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4036861232383577954, guid: e02ed37cb5863dd448d78cd8db092d48,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4036861232383577954, guid: e02ed37cb5863dd448d78cd8db092d48,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 4186885883530985300, guid: e02ed37cb5863dd448d78cd8db092d48,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -441,6 +501,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4563331860342507200, guid: e02ed37cb5863dd448d78cd8db092d48,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4563331860342507200, guid: e02ed37cb5863dd448d78cd8db092d48,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321202401139209620, guid: e02ed37cb5863dd448d78cd8db092d48,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321202401139209620, guid: e02ed37cb5863dd448d78cd8db092d48,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 9178470497865156618, guid: e02ed37cb5863dd448d78cd8db092d48,
         type: 3}
