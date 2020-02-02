@@ -1,16 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class AlertToggle : MonoBehaviour
 {
   public AudioSource source;
-  public GameObject text;
+  public GameObject canvas;
+    public TextMeshProUGUI randomText;
   float alertDelay = 10f;
   public bool scatterOnAwake = false;
   public RigidbodyScatterer scatter;
   public GameObject blankScreen;
   public Transform explosionPos;
+
+    string[] alerts = { "SUN STILL EXISTS", "EVERYTHING IS FINE", "NOT FLOODING", "KINDA WARM", "NO WIND", "SMELLS NICE" };
 
   private void OnEnable()
   {
@@ -45,7 +49,8 @@ public class AlertToggle : MonoBehaviour
     {
       source.Stop();
       blankScreen.SetActive(false);
-      text.SetActive(true);
+      randomText.text = alerts[Random.Range(0, alerts.Length)];
+      canvas.SetActive(true);
       source.Play();
       if (scatter != null)
       {
@@ -71,7 +76,7 @@ public class AlertToggle : MonoBehaviour
       StopAllCoroutines();
       source.Stop();
       blankScreen.SetActive(true);
-      text.SetActive(false);
+      canvas.SetActive(false);
       StartCoroutine(snooze());
     }
   }
