@@ -12,7 +12,7 @@ public class WatchPart : MonoBehaviour
   void Start()
   {
     // XXX
-    valid = (Random.value > 0.9f);
+    valid = (Random.value > 0.2f);
     //valid = true;
   }
 
