@@ -13,8 +13,7 @@ public class GameStateController : MonoBehaviour
     public AudioSource cheerSource;
 
 
-
-  public void scorePart(WatchPart part)
+    public void scorePart(WatchPart part)
   {
     if (!canScore)
       return;
@@ -89,7 +88,7 @@ public class GameStateController : MonoBehaviour
 
   IEnumerator reload()
   {
-    yield return new WaitForSeconds(10f);
+    yield return new WaitForSeconds(15f);
 
     Application.LoadLevel(Application.loadedLevel);
 
