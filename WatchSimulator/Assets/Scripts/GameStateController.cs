@@ -13,7 +13,8 @@ public class GameStateController : MonoBehaviour
     public AudioSource cheerSource;
 
 
-    public void scorePart(WatchPart part)
+
+  public void scorePart(WatchPart part)
   {
     if (!canScore)
       return;
@@ -69,12 +70,13 @@ public class GameStateController : MonoBehaviour
     StartCoroutine(reload());
   }
 
-    IEnumerator delayedSmash() {
-        yield return new WaitForSeconds(0.3f);
-        GetComponent<RigidbodyScatterer>().scatterRigidbodies();
+  IEnumerator delayedSmash()
+  {
+    yield return new WaitForSeconds(0.3f);
+    GetComponent<RigidbodyScatterer>().scatterRigidbodies();
 
-        yield return null;
-    }
+    yield return null;
+  }
 
   IEnumerator spin()
   {
