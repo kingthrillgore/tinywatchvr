@@ -42,9 +42,9 @@ public class WatchTool : MonoBehaviour
 
   private void onCollision(Collider collider)
   {
-    if (collider.TryGetComponent<WatchPart>(out WatchPart part))
+    if (collider.TryGetComponent<WatchPart>(out WatchPart part) && transform.GetComponent<VRTK.VRTK_InteractableObject>().IsGrabbed())
     {
-      if (transform.GetComponent<VRTK.VRTK_InteractableObject>().IsGrabbed() && (works || part.Equals(previouslyWorkingPart)) && !part.snapped && part.canSnap)
+      if ((works || part.Equals(previouslyWorkingPart)) && !part.snapped && part.canSnap)
       {
         previouslyWorkingPart = part;
         part.GetComponent<Rigidbody>().useGravity = false;
@@ -55,8 +55,14 @@ public class WatchTool : MonoBehaviour
       }
       else if (!works)
       {
+        // Already used that tool?
         FindObjectOfType<AbeVoice>().wrongTool();
-      }
+        GetComponent<VRTK_InteractableObject>().ForceStopInteracting();
+        GetComponent<Rigidbody>().useGravity = true;
+        GetComponent<Rigidbody>().isKinematic = false;
+        GetComponent<Rigidbody>().AddForce(Random.insideUnitSphere * 30f, ForceMode.Impulse);
+
+       }
     }
   }
 
