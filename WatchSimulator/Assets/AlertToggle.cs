@@ -28,9 +28,7 @@ public class AlertToggle : MonoBehaviour
 
   public void alert()
   {
-    if (!scatterOnAwake) {
-        StartCoroutine(alertCoroutine());
-    }
+    StartCoroutine(alertCoroutine());
   }
 
   IEnumerator snooze()
@@ -53,7 +51,11 @@ public class AlertToggle : MonoBehaviour
         scatter.scatterAtPoint(this.transform);
       }
 
-      yield return new WaitForSeconds(alertDelay);
+        if (!scatterOnAwake) {
+            yield return new WaitForSeconds(alertDelay);
+        } else {
+            yield break;
+        }
     }
   }
 

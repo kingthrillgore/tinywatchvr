@@ -5,7 +5,7 @@ using UnityEngine;
 public class RigidbodyScatterer : MonoBehaviour
 {
   float forceMultiplier = 300f;
-  float radius = 1.5f;
+  float radius = 2f;
   public string triggerTag = "";
 
   public void scatterRigidbodies()

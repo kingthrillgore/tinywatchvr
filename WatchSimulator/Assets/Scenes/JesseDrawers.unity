@@ -2281,7 +2281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   events:
-  - time: 10
+  - time: 30
     ev:
       m_PersistentCalls:
         m_Calls:
@@ -3605,12 +3605,12 @@ PrefabInstance:
     - target: {fileID: 716929463231703616, guid: 5b77843caefd1984a8e26af39903b711,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.835
+      value: 1.746
       objectReference: {fileID: 0}
     - target: {fileID: 716929463231703616, guid: 5b77843caefd1984a8e26af39903b711,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.446
+      value: -0.602
       objectReference: {fileID: 0}
     - target: {fileID: 716929463231703616, guid: 5b77843caefd1984a8e26af39903b711,
         type: 3}
@@ -3652,6 +3652,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 716929463231703616, guid: 5b77843caefd1984a8e26af39903b711,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 716929463231703616, guid: 5b77843caefd1984a8e26af39903b711,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 716929463231703616, guid: 5b77843caefd1984a8e26af39903b711,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 7657687299746992402, guid: 5b77843caefd1984a8e26af39903b711,
         type: 3}
       propertyPath: m_IsTrigger
@@ -3689,6 +3704,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1128169702847694047, guid: ffac7a9e3c87f4b4fa346d251d85ad1d,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1128169702847694047, guid: ffac7a9e3c87f4b4fa346d251d85ad1d,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1128169702847694047, guid: ffac7a9e3c87f4b4fa346d251d85ad1d,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1128169702847694047, guid: ffac7a9e3c87f4b4fa346d251d85ad1d,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1128169702847694047, guid: ffac7a9e3c87f4b4fa346d251d85ad1d,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1128169704621000929, guid: ffac7a9e3c87f4b4fa346d251d85ad1d,
         type: 3}
       propertyPath: m_LocalPosition.x

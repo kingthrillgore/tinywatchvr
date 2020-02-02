@@ -25,9 +25,12 @@ public class WatchSlot : MonoBehaviour
 
         Transform tool = part.transform.parent;
         part.transform.parent = null;
-        Destroy(tool.gameObject);
+        //Destroy(tool.gameObject);
 
-        part.GetComponent<Rigidbody> ().AddForce(Random.insideUnitSphere * 10f, ForceMode.Impulse);
+        part.GetComponent<Rigidbody>().useGravity = true;
+        part.GetComponent<Rigidbody>().isKinematic = false;
+
+        part.GetComponent<Rigidbody> ().AddForce(Random.insideUnitSphere * 15f, ForceMode.Impulse);
 
     } else
       {
