@@ -71,7 +71,7 @@ public class AlertToggle : MonoBehaviour
 
   void onCollision(Collider collider)
   {
-    if (collider.tag == "Hand" || collider.transform.parent.tag == "Hand")
+    if (collider.tag == "Hand" || (collider.transform.parent != null && collider.transform.parent.tag == "Hand"))
     {
       StopAllCoroutines();
       source.Stop();

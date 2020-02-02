@@ -8,9 +8,10 @@ public class GameStateController : MonoBehaviour
   public AudioSource dingSound;
   bool canScore = true;
   public Transform winText;
+    public GameObject trophy;
 
 
-  public void scorePart(WatchPart part)
+    public void scorePart(WatchPart part)
   {
     if (!canScore)
       return;
@@ -56,9 +57,20 @@ public class GameStateController : MonoBehaviour
     winText.gameObject.SetActive(true);
     StartCoroutine(spin());
 
+    // Trophy
+    trophy.SetActive(true);
+    StartCoroutine(delayedSmash());
+
     // Reload scene
     StartCoroutine(reload());
   }
+
+    IEnumerator delayedSmash() {
+        yield return new WaitForSeconds(0.3f);
+        GetComponent<RigidbodyScatterer>().scatterRigidbodies();
+
+        yield return null;
+    }
 
   IEnumerator spin()
   {
