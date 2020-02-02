@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/JesseDrawers.unity
+    guid: c8490da4970ffa44b92f9ac4c9f12823
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: ebcc7bd79bd9ac04891ad6ac17765158,
       type: 2}
