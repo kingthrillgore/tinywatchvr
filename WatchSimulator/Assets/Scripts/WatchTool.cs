@@ -22,11 +22,21 @@ public class WatchTool : MonoBehaviour
   private void onCollision(Collider collider)
   {
     //
-    if (collider.TryGetComponent<WatchPart>(out WatchPart part) && (this.works || part.Equals(previouslyWorkingPart)))
+    if (collider.TryGetComponent<WatchPart>(out WatchPart part))
+
     {
-      previouslyWorkingPart = part;
-      part.transform.SetParent(transform);
-      works = false;
+      if (works || part.Equals(previouslyWorkingPart))
+      {
+        previouslyWorkingPart = part;
+        part.GetComponent<Rigidbody>().useGravity = false;
+        part.GetComponent<Rigidbody>().isKinematic = true;
+        part.transform.parent = transform;
+        works = false;
+      }
+      else
+      {
+        Debug.Log("TODO: sound effect or text to say the tool is wrong.");
+      }
     }
   }
 

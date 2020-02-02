@@ -16,15 +16,21 @@ public class WatchSlot : MonoBehaviour
 
   private void onCollision(Collider collider)
   {
-    if (collider.TryGetComponent<WatchPart>(out WatchPart part) && part.valid)
+    if (collider.TryGetComponent<WatchPart>(out WatchPart part))
     {
-      part.GetComponent<VRTK_InteractableObject>().ForceStopInteracting();
-      part.gameObject.transform.position = snapSpot.transform.position;
-      part.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
-      gameStateController.scorePart(part);
-      part.snapped = true;
-      part.transform.parent = transform;
-      // TODO: play a sound effect, show the score?
+      if (!part.valid)
+      {
+        Debug.Log("TODO: sound effect or text that the part is wrong.");
+      }
+      else
+      {
+        part.gameObject.transform.position = snapSpot.transform.position;
+        part.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+        gameStateController.scorePart(part);
+        part.snapped = true;
+        part.transform.parent = transform;
+        // TODO: play a sound effect, show the score?
+      }
     }
   }
 
