@@ -5110,6 +5110,10 @@ PrefabInstance:
       propertyPath: explosionPos
       value: 
       objectReference: {fileID: 1670620850}
+    - target: {fileID: 1758403499, guid: ffac7a9e3c87f4b4fa346d251d85ad1d, type: 3}
+      propertyPath: scatter
+      value: 
+      objectReference: {fileID: 419473468}
     - target: {fileID: 1128169702847694047, guid: ffac7a9e3c87f4b4fa346d251d85ad1d,
         type: 3}
       propertyPath: m_textInfo.characterCount
