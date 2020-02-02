@@ -12,8 +12,8 @@ public class WatchPart : MonoBehaviour
   void Start()
   {
     // XXX
-    valid = (Random.value > 0.9f);
-    //valid = true;
+    //valid = (Random.value > 0.9f);
+    valid = true;
   }
 
     IEnumerator delay() {

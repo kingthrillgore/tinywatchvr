@@ -19,7 +19,7 @@ public class WatchTool : MonoBehaviour
   {
     if (collider.TryGetComponent<WatchPart>(out WatchPart part))
     {
-      if ((works || part.Equals(previouslyWorkingPart)) && !part.snapped)
+      if (transform.GetComponent<VRTK.VRTK_InteractableObject> ().IsGrabbed() && (works || part.Equals(previouslyWorkingPart)) && !part.snapped && part.canSnap)
       {
         previouslyWorkingPart = part;
         part.GetComponent<Rigidbody>().useGravity = false;

@@ -9,17 +9,7 @@ public class AbeVoice : MonoBehaviour
   bool partCooldown = false;
   bool toolCooldown = false;
   float delay = 4f;
-  // Start is called before the first frame update
 
-  void Start()
-  {
-
-  }
-
-  // Update is called once per frame
-  void Update()
-  {
-  }
 
   IEnumerator delayPart()
   {

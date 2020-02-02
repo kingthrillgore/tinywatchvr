@@ -6,8 +6,10 @@ public class GameStateController : MonoBehaviour
 {
   public List<WatchPart> parts = new List<WatchPart>();
   bool canScore = true;
+    public Transform winText;
 
-  public void scorePart(WatchPart part)
+
+    public void scorePart(WatchPart part)
   {
         if (!canScore)
             return;
@@ -22,6 +24,7 @@ public class GameStateController : MonoBehaviour
     {
       // TODO: send timer callback to play audio and show a success screen?
       Debug.Log("You have won this video game.");
+            winGame();
     }
   }
 
@@ -40,4 +43,30 @@ public class GameStateController : MonoBehaviour
     Debug.Log("Removing part " + part.name + " " + parts.Contains(part));
     parts.Remove(part);
   }
+
+    public void winGame() {
+        // Audio
+
+        // Spinning text
+        winText.gameObject.SetActive(true);
+        StartCoroutine(spin());
+
+        // Reload scene
+        StartCoroutine(reload());
+    }
+
+    IEnumerator spin() {
+        while (true) {
+            winText.Rotate(winText.up, 1f);
+            yield return new WaitForSeconds(0.01f);
+        }
+    }
+
+    IEnumerator reload() {
+        yield return new WaitForSeconds(10f);
+
+        Application.LoadLevel(Application.loadedLevel);
+
+        yield return null;
+    }
 }

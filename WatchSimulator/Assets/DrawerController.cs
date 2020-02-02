@@ -25,7 +25,7 @@ public class DrawerController : MonoBehaviour
         }
 
         if (open) {
-            drawerClose();
+            //drawerClose();
         } else {
             drawerOpen();
         }
@@ -36,7 +36,15 @@ public class DrawerController : MonoBehaviour
             open = true;
 
             spawnRandom();
+
+            StartCoroutine(delayedClose());
         }
+    }
+
+    IEnumerator delayedClose() {
+        yield return new WaitForSeconds(10f);
+
+        drawerClose();
     }
 
     void drawerClose() {

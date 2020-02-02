@@ -12,6 +12,7 @@ TagManager:
   - Part
   - Hand
   - Tool
+  - Head
   layers:
   - Default
   - TransparentFX

@@ -10,6 +10,7 @@ public class AlertToggle : MonoBehaviour
   public bool scatterOnAwake = false;
   public RigidbodyScatterer scatter;
   public GameObject blankScreen;
+  public Transform explosionPos;
 
   private void OnEnable()
   {
@@ -48,7 +49,11 @@ public class AlertToggle : MonoBehaviour
       source.Play();
       if (scatter != null)
       {
-        scatter.scatterAtPoint(this.transform);
+        if (explosionPos != null) {
+            scatter.scatterAtPoint(explosionPos);
+        } else {
+            scatter.scatterAtPoint(this.transform);
+        }
       }
 
         if (!scatterOnAwake) {

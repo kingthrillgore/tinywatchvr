@@ -27,12 +27,10 @@ public class WatchSlot : MonoBehaviour
         part.transform.parent = null;
         //Destroy(tool.gameObject);
 
+        part.unsnap();
         part.GetComponent<Rigidbody>().useGravity = true;
         part.GetComponent<Rigidbody>().isKinematic = false;
-
-        part.GetComponent<Rigidbody> ().AddForce(Random.insideUnitSphere * 15f, ForceMode.Impulse);
-
-
+        part.GetComponent<Rigidbody> ().AddForce(Random.insideUnitSphere * 50f, ForceMode.Impulse);
       }
       else
       {
