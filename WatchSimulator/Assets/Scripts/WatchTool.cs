@@ -28,7 +28,7 @@ public class WatchTool : MonoBehaviour
         part.transform.parent = transform;
         works = false;
       }
-      else
+      else if (!works)
       {
         Debug.Log("TODO: sound effect or text to say the tool is wrong.");
       }
