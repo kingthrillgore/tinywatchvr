@@ -23,14 +23,12 @@ public class WatchSlot : MonoBehaviour
       {
         FindObjectOfType<AbeVoice>().wrongPart();
 
-        Transform tool = part.transform.parent;
         part.transform.parent = null;
-        //Destroy(tool.gameObject);
 
         part.unsnap();
         part.GetComponent<Rigidbody>().useGravity = true;
         part.GetComponent<Rigidbody>().isKinematic = false;
-        part.GetComponent<Rigidbody> ().AddForce(Random.insideUnitSphere * 50f, ForceMode.Impulse);
+        part.GetComponent<Rigidbody>().AddForce(Random.insideUnitSphere * 50f, ForceMode.Impulse);
       }
       else
       {
