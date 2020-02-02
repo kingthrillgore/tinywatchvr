@@ -9,13 +9,9 @@ public class WatchTool : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-    works = (Random.value > 0.5f);
-  }
-
-  // Update is called once per frame
-  void Update()
-  {
-
+    // XXX
+    //works = (Random.value > 0.5f);
+    works = true;
   }
 
 
@@ -23,9 +19,8 @@ public class WatchTool : MonoBehaviour
   {
     //
     if (collider.TryGetComponent<WatchPart>(out WatchPart part))
-
     {
-      if (works || part.Equals(previouslyWorkingPart))
+      if ((works || part.Equals(previouslyWorkingPart)) && !part.snapped)
       {
         previouslyWorkingPart = part;
         part.GetComponent<Rigidbody>().useGravity = false;

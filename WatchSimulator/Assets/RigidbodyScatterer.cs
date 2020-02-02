@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class RigidbodyScatterer : MonoBehaviour
 {
-  float forceMultiplier = 150f;
-  float radius = 1f;
+  float forceMultiplier = 300f;
+  float radius = 1.5f;
   public string triggerTag = "";
 
   public void scatterRigidbodies()
   {
     Rigidbody[] objects = GameObject.FindObjectsOfType<Rigidbody>();
 
-    // foreach (Rigidbody obj in objects) {
-    //     if (triggerTag != "" && triggerTag != obj.tag) {
-    //         continue;
-    //     }
+    foreach (Rigidbody obj in objects) {
+        if (triggerTag != "" && triggerTag != obj.tag) {
+            continue;
+        }
 
-    //     obj.AddForce(Random.insideUnitSphere * forceMultiplier, ForceMode.Impulse);
-    // }
+        obj.AddForce(Random.insideUnitSphere * forceMultiplier, ForceMode.Impulse);
+    }
   }
 
   public void scatterAtPoint(Transform explosionPoint)
@@ -33,15 +33,21 @@ public class RigidbodyScatterer : MonoBehaviour
       }
 
       Rigidbody rb = hit.GetComponent<Rigidbody>();
+    // Detatch watch parts from 
+    if (hit.TryGetComponent<WatchPart>(out WatchPart part)) {
+        Debug.Log("Scattering part " + part.name);
 
-      if (rb != null)
-        rb.AddExplosionForce(forceMultiplier, explosionPos, radius, 1.0f);
-      // Detatch watch parts from 
-      if (hit.TryGetComponent<WatchPart>(out WatchPart part))
-      {
-        part.snapped = false;
+        part.GetComponent<Rigidbody>().useGravity = true;
+        part.GetComponent<Rigidbody>().isKinematic = false;
+        part.transform.parent = null;
+        part.unsnap();
         GameObject.FindObjectOfType<GameStateController>().unscorePart(part);
-      }
+    }
+
+    if (rb != null) {
+        rb.AddExplosionForce(forceMultiplier, explosionPos, radius, 1.0f);
+
+    }
     }
   }
 }

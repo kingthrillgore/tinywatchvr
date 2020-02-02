@@ -11,6 +11,7 @@ TagManager:
   - Goggles
   - Part
   - Hand
+  - Tool
   layers:
   - Default
   - TransparentFX
