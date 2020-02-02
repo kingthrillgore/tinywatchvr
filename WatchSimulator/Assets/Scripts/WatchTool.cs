@@ -34,6 +34,7 @@ public class WatchTool : MonoBehaviour
       part.transform.parent = null;
       part.GetComponent<Rigidbody>().useGravity = true;
       part.GetComponent<Rigidbody>().isKinematic = false;
+      part.GetComponent<Rigidbody>().AddForce(Random.insideUnitSphere * 30f, ForceMode.Impulse);
     }
     works = true;
   }
