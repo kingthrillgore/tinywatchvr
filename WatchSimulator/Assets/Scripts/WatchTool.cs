@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VRTK;
 
 public class WatchTool : MonoBehaviour
 {
-  public bool works = false;
+  public bool works;
   WatchPart previouslyWorkingPart;
   // Start is called before the first frame update
   void Start()
@@ -14,6 +15,28 @@ public class WatchTool : MonoBehaviour
     works = true;
   }
 
+  private void OnEnable()
+  {
+    GetComponent<VRTK_InteractableObject>().InteractableObjectUngrabbed += handleUngrab;
+  }
+
+  private void OnDisable()
+  {
+    GetComponent<VRTK_InteractableObject>().InteractableObjectUngrabbed -= handleUngrab;
+  }
+
+
+  void handleUngrab(object sender, InteractableObjectEventArgs e)
+  {
+    var part = GetComponentInChildren<WatchPart>();
+    if (part)
+    {
+      part.transform.parent = null;
+      part.GetComponent<Rigidbody>().useGravity = true;
+      part.GetComponent<Rigidbody>().isKinematic = false;
+    }
+    works = true;
+  }
 
   private void onCollision(Collider collider)
   {
