@@ -5,36 +5,40 @@ using UnityEngine;
 public class GameStateController : MonoBehaviour
 {
   public List<WatchPart> parts = new List<WatchPart>();
+  public AudioSource dingSound;
   bool canScore = true;
-    public Transform winText;
+  public Transform winText;
 
 
-    public void scorePart(WatchPart part)
+  public void scorePart(WatchPart part)
   {
-        if (!canScore)
-            return;
+    if (!canScore)
+      return;
 
-        if (!parts.Contains(part)) {
-            Debug.Log("adding " + part.name);
-            parts.Add(part);
+    if (!parts.Contains(part))
+    {
+      Debug.Log("adding " + part.name);
+      parts.Add(part);
+      dingSound.Play();
 
-            StartCoroutine(delay());
-        }
+      StartCoroutine(delay());
+    }
     if (parts.Count >= 4)
     {
       // TODO: send timer callback to play audio and show a success screen?
       Debug.Log("You have won this video game.");
-            winGame();
+      winGame();
     }
   }
 
-    IEnumerator delay() {
-        canScore = false;
+  IEnumerator delay()
+  {
+    canScore = false;
 
-        yield return new WaitForSeconds(2f);
+    yield return new WaitForSeconds(2f);
 
-        canScore = true;
-    }
+    canScore = true;
+  }
 
   public void unscorePart(WatchPart part)
   {
@@ -44,29 +48,33 @@ public class GameStateController : MonoBehaviour
     parts.Remove(part);
   }
 
-    public void winGame() {
-        // Audio
+  public void winGame()
+  {
+    // Audio
 
-        // Spinning text
-        winText.gameObject.SetActive(true);
-        StartCoroutine(spin());
+    // Spinning text
+    winText.gameObject.SetActive(true);
+    StartCoroutine(spin());
 
-        // Reload scene
-        StartCoroutine(reload());
+    // Reload scene
+    StartCoroutine(reload());
+  }
+
+  IEnumerator spin()
+  {
+    while (true)
+    {
+      winText.Rotate(winText.up, 1f);
+      yield return new WaitForSeconds(0.01f);
     }
+  }
 
-    IEnumerator spin() {
-        while (true) {
-            winText.Rotate(winText.up, 1f);
-            yield return new WaitForSeconds(0.01f);
-        }
-    }
+  IEnumerator reload()
+  {
+    yield return new WaitForSeconds(10f);
 
-    IEnumerator reload() {
-        yield return new WaitForSeconds(10f);
+    Application.LoadLevel(Application.loadedLevel);
 
-        Application.LoadLevel(Application.loadedLevel);
-
-        yield return null;
-    }
+    yield return null;
+  }
 }
