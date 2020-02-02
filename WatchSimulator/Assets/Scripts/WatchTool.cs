@@ -7,6 +7,7 @@ public class WatchTool : MonoBehaviour
 {
   public bool works;
   WatchPart previouslyWorkingPart;
+  public AudioSource snapSound;
   // Start is called before the first frame update
   void Start()
   {
@@ -34,6 +35,7 @@ public class WatchTool : MonoBehaviour
       part.transform.parent = null;
       part.GetComponent<Rigidbody>().useGravity = true;
       part.GetComponent<Rigidbody>().isKinematic = false;
+      part.GetComponent<Rigidbody>().AddForce(Random.insideUnitSphere * 30f, ForceMode.Impulse);
     }
     works = true;
   }
@@ -42,12 +44,13 @@ public class WatchTool : MonoBehaviour
   {
     if (collider.TryGetComponent<WatchPart>(out WatchPart part))
     {
-      if (transform.GetComponent<VRTK.VRTK_InteractableObject> ().IsGrabbed() && (works || part.Equals(previouslyWorkingPart)) && !part.snapped && part.canSnap)
+      if (transform.GetComponent<VRTK.VRTK_InteractableObject>().IsGrabbed() && (works || part.Equals(previouslyWorkingPart)) && !part.snapped && part.canSnap)
       {
         previouslyWorkingPart = part;
         part.GetComponent<Rigidbody>().useGravity = false;
         part.GetComponent<Rigidbody>().isKinematic = true;
         part.transform.parent = transform;
+        snapSound.Play();
         works = false;
       }
       else if (!works)
