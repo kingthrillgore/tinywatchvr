@@ -9,6 +9,8 @@ public class GameStateController : MonoBehaviour
   bool canScore = true;
   public Transform winText;
     public GameObject trophy;
+    public AudioSource outroSource;
+    public AudioSource cheerSource;
 
 
     public void scorePart(WatchPart part)
@@ -52,6 +54,8 @@ public class GameStateController : MonoBehaviour
   public void winGame()
   {
     // Audio
+    outroSource.Play();
+    cheerSource.Play();
 
     // Spinning text
     winText.gameObject.SetActive(true);
