@@ -17,7 +17,6 @@ public class WatchTool : MonoBehaviour
 
   private void onCollision(Collider collider)
   {
-    //
     if (collider.TryGetComponent<WatchPart>(out WatchPart part))
     {
       if ((works || part.Equals(previouslyWorkingPart)) && !part.snapped)

@@ -28,7 +28,9 @@ public class AlertToggle : MonoBehaviour
 
   public void alert()
   {
-    StartCoroutine(alertCoroutine());
+    if (!scatterOnAwake) {
+        StartCoroutine(alertCoroutine());
+    }
   }
 
   IEnumerator snooze()

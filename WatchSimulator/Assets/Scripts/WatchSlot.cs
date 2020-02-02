@@ -22,8 +22,14 @@ public class WatchSlot : MonoBehaviour
       if (!part.valid)
       {
         Debug.Log("TODO: sound effect or text that the part is wrong.");
-      }
-      else
+
+        Transform tool = part.transform.parent;
+        part.transform.parent = null;
+        Destroy(tool.gameObject);
+
+        part.GetComponent<Rigidbody> ().AddForce(Random.insideUnitSphere * 10f, ForceMode.Impulse);
+
+    } else
       {
         if (part.snapped || !part.canSnap) {
             return;
