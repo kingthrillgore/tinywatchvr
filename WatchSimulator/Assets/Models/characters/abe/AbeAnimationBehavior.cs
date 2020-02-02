@@ -28,19 +28,14 @@ public class AbeAnimationBehavior : MonoBehaviour
 
                 int rand = Random.Range(0, 3);
                 if (rand == 0) {
-                    Debug.Log("Idle");
                     IdleAction();
                 } else if (rand == 1) {
-                    Debug.Log("Work");
                     Work();
                 } else {
-                    Debug.Log("Happy");
                     ReactHappy();
                 }
             }
-            var dot = Vector3.Dot(animator.transform.forward, transform.forward);
-            Debug.Log("Dot: " + dot.ToString());
-            if (dot < recenterThreshold)
+            if (Vector3.Dot(animator.transform.forward, transform.forward) < recenterThreshold)
                 animator.transform.rotation = Quaternion.Lerp(animator.transform.rotation, transform.rotation, 0.1f);
             if (Vector3.SqrMagnitude(animator.transform.position - transform.position) > Mathf.Pow(repositionThreshhold, 2f))
                 animator.transform.position = Vector3.Lerp(animator.transform.position, transform.position, 0.1f);
