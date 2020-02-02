@@ -6,26 +6,35 @@ using VRTK;
 public class WatchTool : MonoBehaviour
 {
   public bool works;
-  WatchPart previouslyWorkingPart;
   public AudioSource snapSound;
   // Start is called before the first frame update
   void Start()
   {
-    // XXX
-    //works = (Random.value > 0.5f);
-    works = true;
+    works = (Random.value > 0.2f);
   }
 
   private void OnEnable()
   {
     GetComponent<VRTK_InteractableObject>().InteractableObjectUngrabbed += handleUngrab;
+    GetComponent<VRTK_InteractableObject>().InteractableObjectGrabbed += handleGrab;
   }
 
   private void OnDisable()
   {
     GetComponent<VRTK_InteractableObject>().InteractableObjectUngrabbed -= handleUngrab;
+    GetComponent<VRTK_InteractableObject>().InteractableObjectGrabbed -= handleGrab;
   }
 
+  void handleGrab(object sender, InteractableObjectEventArgs e)
+  {
+    if (!works)
+    {
+      FindObjectOfType<AbeVoice>().wrongTool();
+      GetComponent<VRTK_InteractableObject>().ForceStopInteracting();
+      GetComponent<Rigidbody>().useGravity = true;
+      GetComponent<Rigidbody>().isKinematic = false;
+    }
+  }
 
   void handleUngrab(object sender, InteractableObjectEventArgs e)
   {
@@ -37,32 +46,16 @@ public class WatchTool : MonoBehaviour
       part.GetComponent<Rigidbody>().isKinematic = false;
       part.GetComponent<Rigidbody>().AddForce(Random.insideUnitSphere * 30f, ForceMode.Impulse);
     }
-    works = true;
   }
 
   private void onCollision(Collider collider)
   {
-    if (collider.TryGetComponent<WatchPart>(out WatchPart part) && transform.GetComponent<VRTK.VRTK_InteractableObject>().IsGrabbed())
+    if (collider.TryGetComponent<WatchPart>(out WatchPart part) && transform.GetComponent<VRTK.VRTK_InteractableObject>().IsGrabbed() && works && !part.snapped && part.canSnap)
     {
-      if ((works || part.Equals(previouslyWorkingPart)) && !part.snapped && part.canSnap)
-      {
-        previouslyWorkingPart = part;
-        part.GetComponent<Rigidbody>().useGravity = false;
-        part.GetComponent<Rigidbody>().isKinematic = true;
-        part.transform.parent = transform;
-        snapSound.Play();
-        works = false;
-      }
-      else if (!works)
-      {
-        // Already used that tool?
-        FindObjectOfType<AbeVoice>().wrongTool();
-        GetComponent<VRTK_InteractableObject>().ForceStopInteracting();
-        GetComponent<Rigidbody>().useGravity = true;
-        GetComponent<Rigidbody>().isKinematic = false;
-        GetComponent<Rigidbody>().AddForce(Random.insideUnitSphere * 30f, ForceMode.Impulse);
-
-       }
+      part.GetComponent<Rigidbody>().useGravity = false;
+      part.GetComponent<Rigidbody>().isKinematic = true;
+      part.transform.parent = transform;
+      snapSound.Play();
     }
   }
 
