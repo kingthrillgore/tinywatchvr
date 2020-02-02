@@ -24,7 +24,18 @@ public class AbeAnimationBehavior : MonoBehaviour
         )
         {
             PickNextIdleActionTime();
-            IdleAction();
+
+            int rand = Random.Range(0, 3);
+            if (rand == 0) {
+                Debug.Log("Idle");
+                IdleAction();
+            } else if (rand == 1) {
+                Debug.Log("Work");
+                Work();
+            } else {
+                Debug.Log("Happy");
+                ReactHappy();
+            }
         }
     }
 
@@ -47,7 +58,7 @@ public class AbeAnimationBehavior : MonoBehaviour
     public void Work()
     {
         Randomize();
-        animator.SetTrigger("ReactHappy");
+        animator.SetTrigger("Work");
     }
 
     public void ReactHappy()
